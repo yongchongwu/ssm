@@ -74,10 +74,15 @@
     <property name="configLocation" value="classpath:mybatis-config.xml"></property>
     <property name="mapperLocations" value="classpath:mappers/*.xml"/>
   </bean>
-
-  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-    <property name="basePackage" value="com.ssm.dao"/>
+  <!--替换org.mybatis.spring.mapper.MapperScannerConfigurer-->
+  <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
     <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    <property name="basePackage" value="com.ssm.dao"/>
+    <property name="properties">
+      <value>
+        mappers=tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.IdsMapper
+      </value>
+    </property>
   </bean>
 
   <!-- 配置事务管理器 -->
