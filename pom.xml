@@ -47,6 +47,7 @@
     <commons-csv.version>1.5</commons-csv.version>
 
     <spring.version>4.3.10.RELEASE</spring.version>
+    <aspectjweaver.version>1.8.9</aspectjweaver.version>
     <cglib-nodep.version>3.1</cglib-nodep.version>
     <asm.version>3.1</asm.version>
     <antlr.version>2.7.7</antlr.version>
@@ -274,6 +275,12 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
+    </dependency>
+    <!-- aspectjweaver -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>${aspectjweaver.version}</version>
     </dependency>
     <!-- cglib-nodep -->
     <dependency>
