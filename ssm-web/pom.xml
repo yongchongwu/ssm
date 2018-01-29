@@ -12,4 +12,21 @@
   <name>ssm-web Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+  <properties>
+    <ssm.version>1.0-SNAPSHOT</ssm.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.ssm</groupId>
+      <artifactId>ssm-core</artifactId>
+      <version>${ssm.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ssm</groupId>
+      <artifactId>ssm-utils</artifactId>
+      <version>${ssm.version}</version>
+    </dependency>
+  </dependencies>
+
 </project>

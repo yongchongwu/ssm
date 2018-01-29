@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.BlogArticleMapper">
+
+  <resultMap id="blogArticleResultMap" type="blogArticleDTO">
+    <id property="id" column="id" />
+    <result property="user_id" column="user_id"/>
+    <result property="name" column="blog_name"/>
+    <result property="remark" column="remark"/>
+    <collection property="articles" ofType="article">
+      <id property="id" column="article_id"/>
+      <result property="blog_id" column="blog_id"/>
+      <result property="title" column="title"/>
+      <result property="content" column="content"/>
+      <result property="author" column="author"/>
+      <result property="addTime" column="add_time"/>
+      <result property="updateTime" column="update_time"/>
+    </collection>
+  </resultMap>
+
+  <select id="selectBlogArticles" resultMap="blogArticleResultMap">
+    SELECT
+      a.*,
+      b.id as article_id,
+      b.blog_id,
+      b.title,
+      b.content,
+      b.author,
+      b.add_time,
+      b.update_time
+    FROM t_blog a,t_article b
+    WHERE a.id=b.blog_id
+    ORDER BY a.id asc
+  </select>
+
+</mapper>
