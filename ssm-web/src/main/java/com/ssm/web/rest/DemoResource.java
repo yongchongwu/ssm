@@ -97,4 +97,21 @@ public class DemoResource {
     return ResponseEntity.ok().body(pageInfo);
   }
 
+  @GetMapping("/demos/test8/{id}")
+  public ResponseEntity<User> test8(@PathVariable Integer id) {
+    log.debug("REST request to test demos");
+    User user = userService.selectUser(id);
+    return ResponseEntity.ok().body(user);
+  }
+
+  @GetMapping("/demos/test9")
+  public ResponseEntity<PageInfo> test9(@RequestParam(value = "start") Integer start,
+      @RequestParam(value = "limit") Integer limit,@RequestParam(value = "orderBy") String orderBy) {
+    log.debug("REST request to test demos");
+    PageHelper.startPage(start,limit,orderBy);
+    List<User> userList = userService.selectAllUser();
+    PageInfo pageInfo = new PageInfo(userList);
+    return ResponseEntity.ok().body(pageInfo);
+  }
+
 }

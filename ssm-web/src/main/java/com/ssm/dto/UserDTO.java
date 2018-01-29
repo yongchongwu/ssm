@@ -1,26 +1,35 @@
 package com.ssm.dto;
 
 import java.io.Serializable;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.apache.ibatis.type.Alias;
 
-public class UserDTO implements Serializable{
+@Alias("userDTO")
+public class UserDTO implements Serializable {
+
+  private Integer id;
   @NotNull
   @Size(max = 50)
   private String name;
+  @Size(max = 50)
+  private String password;
   @NotNull
-  private String sex;
-  @NotNull
-  @Min(1)
-  @Max(100)
-  private Integer age;
+  @Size(max = 100)
+  private String email;
   @NotNull
   @Size(max = 20)
   private String phone;
   @Size(max = 200)
   private String address;
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
   public String getName() {
     return name;
@@ -30,20 +39,20 @@ public class UserDTO implements Serializable{
     this.name = name;
   }
 
-  public String getSex() {
-    return sex;
+  public String getPassword() {
+    return password;
   }
 
-  public void setSex(String sex) {
-    this.sex = sex;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
-  public Integer getAge() {
-    return age;
+  public String getEmail() {
+    return email;
   }
 
-  public void setAge(Integer age) {
-    this.age = age;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public String getPhone() {

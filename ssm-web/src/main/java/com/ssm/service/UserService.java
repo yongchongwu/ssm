@@ -19,4 +19,12 @@ public class UserService {
   public User getOne(Integer id) {
     return userMapper.selectByPrimaryKey(id);
   }
+
+  public User selectUser(Integer id) {
+    return userMapper.selectUser(id);
+  }
+
+  public List<User> selectAllUser() {
+    return userMapper.selectAllUser();
+  }
 }
